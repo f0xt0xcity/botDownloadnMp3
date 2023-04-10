@@ -33,13 +33,13 @@ def downloadMp3( url ):
 def extractYoutubeLink( message ):
     messageSplit = str(message).split(" ")
     for i in range(len(messageSplit)):
-        indexWithLink = messageSplit[i].startswith(('https://www.you', 'http://www.you', 'www.you'))
+        indexWithLink = messageSplit[i].startswith(('https://www.you', 'http://www.you', 'www.you','https://youtu.be'))
         if indexWithLink == True:
             return messageSplit[i]
     return ""
 
 
-bot = Bot(token=config('TOKEN'))
+bot = Bot(config('TOKEN'))
 dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start','ayuda'])
